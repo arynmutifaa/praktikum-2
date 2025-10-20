@@ -1,14 +1,13 @@
 pipeline {
   agent any
 
-  environment {
-    IMAGE_NAME = "arynnn/simple-app"
-    REGISTRY = "https://index.docker.io/v1/"
-    // ID credential Docker Hub harus sudah dibuat di Jenkins credentials
-    REGISTRY_CREDENTIALS = "dockerhub-credentials"
-    DOCKER_CLI = "/Applications/Docker.app/Contents/Resources/bin/docker"
-
-  }
+environment {
+  IMAGE_NAME = "arynnn/simple-app"
+  REGISTRY = "https://index.docker.io/v1/"
+  REGISTRY_CREDENTIALS = "dockerhub-credentials"
+  DOCKER_CLI = "/Applications/Docker.app/Contents/Resources/bin/docker"
+  PATH = "/Applications/Docker.app/Contents/Resources/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+}
 
   stages {
     stage('Checkout') {
