@@ -1,21 +1,26 @@
 pipeline {
   agent any
+
   environment {
+    PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     IMAGE_NAME = 'arynnn/simple-app'
     REGISTRY = 'https://index.docker.io/v1/'
     REGISTRY_CREDENTIALS = 'dockerhub-credentials'
   }
+
   stages {
     stage('Checkout') {
       steps {
         checkout scm
       }
     }
+
     stage('Build') {
       steps {
         sh 'echo "Mulai build aplikasi"'
       }
     }
+
     stage('Build Docker Image') {
       steps {
         script {
@@ -23,6 +28,7 @@ pipeline {
         }
       }
     }
+
     stage('Push Docker Image') {
       steps {
         script {
@@ -36,6 +42,7 @@ pipeline {
       }
     }
   }
+
   post {
     always {
       echo 'Selesai build'
