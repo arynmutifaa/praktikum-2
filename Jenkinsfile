@@ -6,7 +6,8 @@ pipeline {
     REGISTRY = "https://index.docker.io/v1/"
     // ID credential Docker Hub harus sudah dibuat di Jenkins credentials
     REGISTRY_CREDENTIALS = "dockerhub-credentials"
-    DOCKER_CLI = "/usr/local/bin/docker"
+    DOCKER_CLI = "/Applications/Docker.app/Contents/Resources/bin/docker"
+
   }
 
   stages {
